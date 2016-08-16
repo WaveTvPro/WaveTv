@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addons>
+<addon id="plugin.video.WAVE" name="Wave Media" version="1.0.8" provider-name="WAVE">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+	<import addon="script.module.addon.common" />
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video executable</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Wave Media</summary>
+    <description lang="en">Wave Media provides an easy way to installing addons to your device</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.WaveTv" name="Wave Tv" version="0.0.1" provider-name="The Boss">
+  <requires>
+  	<import addon="script.module.beautifulsoup" version="3.2.1"/>
+	<import addon="script.module.beautifulsoup4" />
+    <import addon="xbmc.python" version="2.19.0"/>
+	<import addon="script.module.beautifulsoup4" />
+	<import addon="script.module.urlresolver"  version="2.1.2"/>
+    <import addon="script.module.requests"/>
+	<import addon="script.module.addon.common" />
+	<import addon="script.module.simplejson" version="3.3.0"/>
+    <import addon="script.module.buggalo" version="1.1.2"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video executable</provides>
+  </extension>
+  <extension point="xbmc.service" library="service.py" start="login" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Wave Tv. Brought to you by Origin/GenieTv</summary>
+    <description lang="en">A Plugin for Wave Tv's amazing iptv service</description>
+	<disclaimer lang="en">The author neither hosts or stores any content, the author has no affiliation with content hosts</disclaimer>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+    <addon id="repository.WaveTv" name="WaveTv Repo" version="0.1.0" provider-name="TheBoss">
+        <requires>
+            <import addon="xbmc.addon" version="12.0.0"/>
+        </requires>
+        <extension point="xbmc.addon.repository" name="WaveTv Repo">
+            <info compressed="false">http://raw.github.com/WaveTvPro/WaveTv/master/_repo/addons.xml</info>
+            <checksum>http://raw.github.com/WaveTvPro/WaveTv/master/_repo/addons.xml.md5</checksum>
+            <datadir zip="true">http://raw.github.com/WaveTvPro/WaveTv/master/_repo/</datadir>
+            <hashes>false</hashes>
+        </extension>
+        <extension point="xbmc.addon.metadata">
+            <summary>GeniTv Media Solutions</summary>
+            <description>Products From WaveTv. [CR]  Brought to you by the WaveTv</description>
+            <platform>all</platform>
+    </extension>
+</addon>
+</addons>

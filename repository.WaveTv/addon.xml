@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <addon id="repository.WaveTv" name="WaveTv Repo" version="0.1.0" provider-name="TheBoss">
+        <requires>
+            <import addon="xbmc.addon" version="12.0.0"/>
+        </requires>
+        <extension point="xbmc.addon.repository" name="WaveTv Repo">
+            <info compressed="false">http://raw.github.com/WaveTvPro/WaveTv/master/_repo/addons.xml</info>
+            <checksum>http://raw.github.com/WaveTvPro/WaveTv/master/_repo/addons.xml.md5</checksum>
+            <datadir zip="true">http://raw.github.com/WaveTvPro/WaveTv/master/_repo/</datadir>
+            <hashes>false</hashes>
+        </extension>
+        <extension point="xbmc.addon.metadata">
+            <summary>GeniTv Media Solutions</summary>
+            <description>Products From WaveTv. [CR]  Brought to you by the WaveTv</description>
+            <platform>all</platform>
+    </extension>
+</addon>
