@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Xhoans Guide
+# WaveTv Guide
 # Copyright (C) 2015 Thomas Geppert [bluezed]
 # bluezed.apps@gmail.com
 #

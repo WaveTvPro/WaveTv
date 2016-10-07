@@ -3,7 +3,7 @@
 #      Copyright (C) 2013 Tommy Winther
 #      http://tommy.winther.nu
 #
-#      Modified for Xhoans Guide (09/2014 onwards)
+#      Modified for WaveTv Guide (09/2014 onwards)
 #      by Thomas Geppert [bluezed] - bluezed.apps@gmail.com
 #
 #  This Program is free software; you can redistribute it and/or modify
