@@ -46,7 +46,7 @@ i1111 = xbmc . translatePath ( 'special://home/' )
 i11 = ( Oo0oO0ooo ( 'aHR0cDovL2dlbmlldHYuY28udWsvcmVkby8=' ) )
 I11 = xbmc . translatePath ( os . path . join ( 'special://home/addons/' + IiII , 'icon.png' ) )
 Oo0o0000o0o0 = i11 + ( Oo0oO0ooo ( 'R2VuaWVBcnQvd2F2ZS8=' ) )
-oOo0oooo00o = "0.0.3"
+oOo0oooo00o = "0.0.4"
 oO0o0o0ooO0oO = xbmc . translatePath ( 'special://home/userdata/addon_data/plugin.video.WaveTv' )
 oo0o0O00 = xbmc . translatePath ( os . path . join ( 'special://home/addons/plugin.video.WaveTv/imports/tvGuide/ResetDatabase.py' ) )
 oO = xbmc . translatePath ( 'special://thumbnails' ) ;
@@ -66,6 +66,7 @@ II = xbmcgui . Dialog ( )
 if 57 - 57: ooOoo0O
 def OooO0 ( ) :
  II11iiii1Ii ( )
+ OO0o ( '[COLORred]Version 0.0.4[/COLOR]' , '' , '' , I11 , oooOOOOO , '' )
  OO0o ( '[COLORsteelblue]LOGIN[/COLOR]' , '' , 60000 , I11 , oooOOOOO , '' )
  if 82 - 82: i1I1i1Ii11 . IIIIII11i1I - o0o0OOO0o0 % O0 % i1IIi * OoOoOO00
  if 62 - 62: i1I1i1Ii11 . i1IIi / Ii1I
@@ -96,6 +97,7 @@ def Iii111II ( ) :
  Iii1i1I11I ( 'Music' , '' , 14 , Oo0o0000o0o0 + 'UltimateList.png' , oooOOOOO , '' )
  Iii1i1I11I ( 'UK Sports' , '' , 14 , Oo0o0000o0o0 + 'UltimateList.png' , oooOOOOO , '' )
  Iii1i1I11I ( 'International Sports' , '' , 14 , Oo0o0000o0o0 + 'UltimateList.png' , oooOOOOO , '' )
+ Iii1i1I11I ( 'US Sports Live Event/Ticket/Pass' , '' , 14 , Oo0o0000o0o0 + 'UltimateList.png' , oooOOOOO , '' )
  Iii1i1I11I ( 'News UK & International' , '' , 14 , Oo0o0000o0o0 + 'UltimateList.png' , oooOOOOO , '' )
  Iii1i1I11I ( 'German' , '' , 14 , Oo0o0000o0o0 + 'UltimateList.png' , oooOOOOO , '' )
  Iii1i1I11I ( 'Arabic' , '' , 14 , Oo0o0000o0o0 + 'UltimateList.png' , oooOOOOO , '' )

@@ -45,11 +45,11 @@ class GuideTypes(object):
 
     guideTypes = []
     guideParser = ConfigParser.ConfigParser()
-    filePath = xbmc.translatePath(os.path.join('special://profile', 'addon_data', 'plugin.video.WaveTv', 'guides.ini'))
+    filePath = xbmc.translatePath(os.path.join('special://profile', 'addon_data', 'plugin.video.WaveTv', 'Itv.ini'))
 
     def __init__(self):
         try:
-            fetcher = FileFetcher('guides.ini', ADDON)
+            fetcher = FileFetcher('Itv.ini', ADDON)
             if fetcher.fetchFile() < 0:
                 xbmcgui.Dialog().ok(strings(FETCH_ERROR_TITLE), strings(FETCH_ERROR_LINE1), strings(FETCH_ERROR_LINE2))
 
@@ -72,7 +72,7 @@ class GuideTypes(object):
             if str(ADDON.getSetting('xmltv.type')) == '':
                 ADDON.setSetting('xmltv.type', str(defaultGuideId))
         except:
-            print 'unable to parse guides.ini'
+            print 'unable to parse Itv.ini'
 
     def SectionMap(self, section):
         dict1 = {}
