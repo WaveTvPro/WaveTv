@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.WaveTv" name="Wave Tv" version="0.0.4" provider-name="The Boss">
+<addon id="plugin.video.WaveTv" name="Wave Tv" version="0.0.5" provider-name="The Boss">
   <requires>
   	<import addon="script.module.beautifulsoup" version="3.2.1"/>
 	<import addon="script.module.beautifulsoup4" />
@@ -16,8 +16,8 @@
   </extension>
   <extension point="xbmc.service" library="service.py" start="login" />
   <extension point="xbmc.addon.metadata">
-    <summary lang="en">Wave Tv. Brought to you by Origin/GenieTv</summary>
-    <description lang="en">A Plugin for Wave Tv's amazing iptv service</description>
+    <summary lang="en">Wave Tv.</summary>
+    <description lang="en">A Plugin for Wave Tv amazing iptv service</description>
 	<disclaimer lang="en">The author neither hosts or stores any content, the author has no affiliation with content hosts</disclaimer>
     <platform>all</platform>
   </extension>

@@ -3,6 +3,7 @@
 	<category label="Login">
 		<setting id="User" type="text" label="[COLORsteelblue] User =[/COLOR]" default="insert_username" visible="true"/>
 		<setting id="Pass" type="text" label="[COLORsteelblue] Pass =[/COLOR]" default="insert_password" visible="true"/>
+		<setting id="WUSE" type="text" label="[COLORsteelblue] Wizard Pass =[/COLOR]" default="insert_password" visible="true"/>
     </category>	
 	<category label="Auto-View">
 		<setting id="auto-view" type="bool" label="Enable Auto View" default="true"/>
