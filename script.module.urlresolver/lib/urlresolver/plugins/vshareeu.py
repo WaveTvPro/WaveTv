@@ -16,9 +16,10 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-import re
+from lib import helpers
 from urlresolver import common
 from urlresolver.resolver import UrlResolver, ResolverError
+
 
 class VshareEuResolver(UrlResolver):
     name = "vshare.eu"
@@ -30,25 +31,25 @@ class VshareEuResolver(UrlResolver):
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
-        html = self.net.http_GET(web_url).content
+
+        headers = {
+            'Upgrade-Insecure-Requests': '1',
+            'User-Agent': common.FF_USER_AGENT
+        }
+
+        html = self.net.http_GET(web_url, headers=headers).content
+
         if '404 Not Found' in html or 'Has Been Removed' in html:
             raise ResolverError('The requested video was not found.')
 
-        match = re.search('file\s*:\s*"([^"]+)', html)
-        if match:
-            return match.group(1)
-
-        raise ResolverError('No playable video found.')
+        data = helpers.get_hidden(html)
+        headers['Referer'] = web_url
+        response = self.net.http_POST(web_url, data, headers=headers)
+        html = response.content
+        headers = {'Cookie': response.get_headers(as_dict=True).get('Set-Cookie', ''),
+                   'User-Agent': common.FF_USER_AGENT}
+        sources = helpers.scrape_sources(html)
+        return helpers.pick_source(sources) + helpers.append_headers(headers)
 
     def get_url(self, host, media_id):
-        return 'http://vshare.eu/embed-%s.html' % media_id
-
-    def get_host_and_id(self, url):
-        r = re.search(self.pattern, url)
-        if r:
-            return r.groups()
-        else:
-            return False
-
-    def valid_url(self, url, host):
-        return re.search(self.pattern, url) or self.name in host
+        return 'http://vshare.eu/%s' % (media_id)

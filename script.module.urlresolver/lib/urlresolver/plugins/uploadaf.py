@@ -18,6 +18,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 import re
 from lib import captcha_lib
+from lib import helpers
 from urlresolver import common
 from urlresolver.resolver import UrlResolver, ResolverError
 
@@ -37,11 +38,7 @@ class UploadAfResolver(UrlResolver):
 
         tries = 0
         while tries < MAX_TRIES:
-            data = {}
-            for match in re.finditer(r'type="hidden"\s+name="(.+?)"\s+value="(.*?)"', html):
-                key, value = match.groups()
-                data[key] = value
-            data['method_free'] = 'Free Download >>'
+            data = helpers.get_hidden(html)
             data.update(captcha_lib.do_captcha(html))
 
             html = self.net.http_POST(web_url, form_data=data).content
@@ -53,14 +50,4 @@ class UploadAfResolver(UrlResolver):
         raise ResolverError('Unable to resolve upload.af link. Filelink not found.')
 
     def get_url(self, host, media_id):
-        return 'http://upload.af/%s' % (media_id)
-
-    def get_host_and_id(self, url):
-        r = re.search(self.pattern, url)
-        if r:
-            return r.groups()
-        else:
-            return False
-
-    def valid_url(self, url, host):
-        return re.search(self.pattern, url) or self.name in host
+        return 'https://upload.af/%s' % (media_id)

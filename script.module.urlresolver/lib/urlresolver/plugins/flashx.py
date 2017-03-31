@@ -1,6 +1,7 @@
 """
     Kodi urlresolver plugin
     Copyright (C) 2014  smokdpi
+    Updated by Gujal (c) 2016
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -15,60 +16,38 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
-
-import re
-from lib import jsunpack
+import os
+import fx_gmu
 from urlresolver import common
 from urlresolver.resolver import UrlResolver, ResolverError
+
+FX_SOURCE = 'https://offshoregit.com/tvaresolvers/fx_gmu.py'
+FX_PATH = os.path.join(common.plugins_path, 'fx_gmu.py')
 
 class FlashxResolver(UrlResolver):
     name = "flashx"
     domains = ["flashx.tv"]
-    pattern = '(?://|\.)(flashx\.tv)/(?:embed-|dl\?)?([0-9a-zA-Z/-]+)'
+    pattern = '(?://|\.)(flashx\.tv)/(?:embed-|dl\?|embed.php\?c=)?([0-9a-zA-Z/-]+)'
 
     def __init__(self):
         self.net = common.Net()
 
     def get_media_url(self, host, media_id):
-        web_url = self.get_url(host, media_id)
-        html = self.net.http_GET(web_url).content
-
-        r = re.search('href="([^"]+)', html)
-        if r:
-            web_url = r.group(1)
-            html = self.net.http_GET(web_url).content
-
-            try: html = jsunpack.unpack(re.search('(eval\(function.*?)</script>', html, re.DOTALL).group(1))
-            except: pass
-
-            best = 0
-            best_link = ''
-
-            for stream in re.findall('file\s*:\s*"(http.*?)"\s*,\s*label\s*:\s*"(\d+)', html, re.DOTALL):
-                if int(stream[1]) > best:
-                    best = int(stream[1])
-                    best_link = stream[0]
-
-        if best_link:
-            return best_link
-        else:
-            raise ResolverError('Unable to resolve Flashx link. Filelink not found.')
-
+        try:
+            self._auto_update(FX_SOURCE, FX_PATH)
+            reload(fx_gmu)
+            web_url = self.get_url(host, media_id)
+            return fx_gmu.get_media_url(web_url)
+        except Exception as e:
+            common.log_utils.log_debug('Exception during flashx resolve parse: %s' % e)
+            raise
+        
     def get_url(self, host, media_id):
-        return 'http://www.flashx.tv/embed-%s.html' % media_id
-
-    def get_host_and_id(self, url):
-        r = re.search(self.pattern, url)
-        if r:
-            return r.groups()
-        else:
-            return False
-
-    def valid_url(self, url, host):
-        return re.search(self.pattern, url) or self.name in host
+        return self._default_get_url(host, media_id, 'https://{host}/embed.php?c={media_id}')
 
     @classmethod
     def get_settings_xml(cls):
         xml = super(cls, cls).get_settings_xml()
-        xml.append('<setting id="%s_auto_pick" type="bool" label="Automatically pick best quality" default="false" visible="true"/>' % (cls.__name__))
+        xml.append('<setting id="%s_auto_update" type="bool" label="Automatically update resolver" default="true"/>' % (cls.__name__))
+        xml.append('<setting id="%s_etag" type="text" default="" visible="false"/>' % (cls.__name__))
         return xml
