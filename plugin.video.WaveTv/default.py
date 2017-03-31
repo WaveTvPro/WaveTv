@@ -664,10 +664,16 @@ def i1I1i1 ( ) :
   II1iI . ok ( "[COLOR=red][B]WARNING !!![/COLOR][/B]" , "If you\'re seeing this message it means the force close" , "was unsuccessful. Please force close XBMC/Kodi [COLOR=lime]DO NOT[/COLOR] exit via the menu." , "iOS detected. Press and hold both the Sleep/Wake and Home button for at least 10 seconds, until you see the Apple logo." )
   if 12 - 12: ooO0o0Oo - Oo00OOOOO % OO0o * o0
 def OO0Oooo0oOO0O ( url ) :
- i11IIIiI11 = xbmc . Player ( III11I1 ( ) )
  import urlresolver
- try : i11IIIiI11 . play ( url ) . strip ( )
- except : pass
+ try :
+  i11IIIiI11 = urlresolver . resolve ( url ) . strip ( )
+  xbmc . Player ( ) . play ( i11IIIiI11 , xbmcgui . ListItem ( ii11i1 ) )
+ except :
+  try :
+   xbmc . Player ( ) . play ( url , xbmcgui . ListItem ( ii11i1 ) )
+  except :
+   xbmcgui . Dialog ( ) . notification ( "GenieTv" , "unplayable stream" )
+   sys . exit ( )
 def i1OOoO ( ) :
  if xbmc . getCondVisibility ( 'system.platform.android' ) : return 'android'
  elif xbmc . getCondVisibility ( 'system.platform.linux' ) : return 'linux'
@@ -675,67 +681,67 @@ def i1OOoO ( ) :
  elif xbmc . getCondVisibility ( 'system.platform.osx' ) : return 'osx'
  elif xbmc . getCondVisibility ( 'system.platform.atv2' ) : return 'atv2'
  elif xbmc . getCondVisibility ( 'system.platform.ios' ) : return 'ios'
- if 36 - 36: O0O00o0OOO0 - I11ii1 . i1II1I11 - i11iIiiIii - O0o * i1II1I11
+ if 8 - 8: i1I + Ii - ooO0o0Oo % i1II1I11 % ooO0o0Oo * O0O00o0OOO0
 def IIIIii ( log ) :
  xbmc . log ( "[%s]: %s" % ( Iii1ii1II11i , log ) )
  if not os . path . exists ( I1i1iiI1 ) : os . makedirs ( I1i1iiI1 )
  if not os . path . exists ( o00 ) : O0OOO0OOoO0O = open ( o00 , 'w' ) ; O0OOO0OOoO0O . close ( )
  with open ( o00 , 'a' ) as O0OOO0OOoO0O :
-  OooOOOO = "[%s %s] %s" % ( datetime . now ( ) . date ( ) , str ( datetime . now ( ) . time ( ) ) [ : 8 ] , log )
-  O0OOO0OOoO0O . write ( OooOOOO . rstrip ( '\r\n' ) + '\n' )
-  if 45 - 45: Oo00OOOOO % ooOoo0O - i11iIiiIii
-def III11I1 ( ) :
+  IIIi11I11 = "[%s %s] %s" % ( datetime . now ( ) . date ( ) , str ( datetime . now ( ) . time ( ) ) [ : 8 ] , log )
+  O0OOO0OOoO0O . write ( IIIi11I11 . rstrip ( '\r\n' ) + '\n' )
+  if 44 - 44: iIiIiIiIIi
+def OOOO0OOO ( ) :
  try :
-  ii1iiIiIII1ii = getSet ( "core-player" )
-  if ( ii1iiIiIII1ii == 'DVDPLAYER' ) : oO0o0oooO0oO = xbmc . PLAYER_CORE_DVDPLAYER
-  elif ( ii1iiIiIII1ii == 'MPLAYER' ) : oO0o0oooO0oO = xbmc . PLAYER_CORE_MPLAYER
-  elif ( ii1iiIiIII1ii == 'PAPLAYER' ) : oO0o0oooO0oO = xbmc . PLAYER_CORE_PAPLAYER
-  else : oO0o0oooO0oO = xbmc . PLAYER_CORE_AUTO
- except : oO0o0oooO0oO = xbmc . PLAYER_CORE_AUTO
- return oO0o0oooO0oO
+  i1i1ii = getSet ( "core-player" )
+  if ( i1i1ii == 'DVDPLAYER' ) : iII1ii1 = xbmc . PLAYER_CORE_DVDPLAYER
+  elif ( i1i1ii == 'MPLAYER' ) : iII1ii1 = xbmc . PLAYER_CORE_MPLAYER
+  elif ( i1i1ii == 'PAPLAYER' ) : iII1ii1 = xbmc . PLAYER_CORE_PAPLAYER
+  else : iII1ii1 = xbmc . PLAYER_CORE_AUTO
+ except : iII1ii1 = xbmc . PLAYER_CORE_AUTO
+ return iII1ii1
  return True
+ if 12 - 12: O0o - I1I . OoooooooOO / Oo00OOOOO . i1IIi * i1I
  if 19 - 19: i11iIiiIii + OoooooooOO - i1II1I11 - o0
- if 21 - 21: O0 % OOoo0O0 . ooOoo0O / iIiIiIiIIi + OOoo0O0
 def IIiiiiiiIi1I1 ( name , url , mode , iconimage , fanart , description ) :
- if 53 - 53: O0O00o0OOO0 - ooOoo0O - O0O00o0OOO0 * I11II1i
- oooooo0OO = sys . argv [ 0 ] + "?url=" + urllib . quote_plus ( url ) + "&mode=" + str ( mode ) + "&name=" + urllib . quote_plus ( name ) + "&iconimage=" + urllib . quote_plus ( iconimage ) + "&fanart=" + urllib . quote_plus ( fanart ) + "&description=" + urllib . quote_plus ( description )
- iI1I = True
- OooOoOo = xbmcgui . ListItem ( name , iconImage = "DefaultFolder.png" , thumbnailImage = iconimage )
- OooOoOo . setInfo ( type = "Video" , infoLabels = { "Title" : name , "Plot" : description } )
- OooOoOo . setProperty ( "Fanart_Image" , fanart )
- iI1I = xbmcplugin . addDirectoryItem ( handle = int ( sys . argv [ 1 ] ) , url = oooooo0OO , listitem = OooOoOo , isFolder = True )
- return iI1I
- if 14 - 14: ooO0o0Oo * O0o + I11II1i + O0 + i11iIiiIii
+ if 21 - 21: O0 % OOoo0O0 . ooOoo0O / iIiIiIiIIi + OOoo0O0
+ OOOO0O00o = sys . argv [ 0 ] + "?url=" + urllib . quote_plus ( url ) + "&mode=" + str ( mode ) + "&name=" + urllib . quote_plus ( name ) + "&iconimage=" + urllib . quote_plus ( iconimage ) + "&fanart=" + urllib . quote_plus ( fanart ) + "&description=" + urllib . quote_plus ( description )
+ ooo = True
+ IIiIiI1I = xbmcgui . ListItem ( name , iconImage = "DefaultFolder.png" , thumbnailImage = iconimage )
+ IIiIiI1I . setInfo ( type = "Video" , infoLabels = { "Title" : name , "Plot" : description } )
+ IIiIiI1I . setProperty ( "Fanart_Image" , fanart )
+ ooo = xbmcplugin . addDirectoryItem ( handle = int ( sys . argv [ 1 ] ) , url = OOOO0O00o , listitem = IIiIiI1I , isFolder = True )
+ return ooo
+ if 100 - 100: iIii1I11I1II1 + OO0o / i1II1I11 . i11iIiiIii
 def i1I1iI ( name , url , mode , iconimage , fanart , description ) :
+ if 14 - 14: ooO0o0Oo * O0o + I11II1i + O0 + i11iIiiIii
+ OOOO0O00o = sys . argv [ 0 ] + "?url=" + urllib . quote_plus ( url ) + "&mode=" + str ( mode ) + "&name=" + urllib . quote_plus ( name ) + "&iconimage=" + urllib . quote_plus ( iconimage ) + "&fanart=" + urllib . quote_plus ( fanart ) + "&description=" + urllib . quote_plus ( description )
+ ooo = True
+ IIiIiI1I = xbmcgui . ListItem ( name , iconImage = "DefaultFolder.png" , thumbnailImage = iconimage )
+ IIiIiI1I . setInfo ( type = "Video" , infoLabels = { "Title" : name , "Plot" : description } )
+ IIiIiI1I . setProperty ( "Fanart_Image" , fanart )
+ ooo = xbmcplugin . addDirectoryItem ( handle = int ( sys . argv [ 1 ] ) , url = OOOO0O00o , listitem = IIiIiI1I , isFolder = False )
+ return ooo
  if 77 - 77: ooO0o0Oo / OoooooooOO
- oooooo0OO = sys . argv [ 0 ] + "?url=" + urllib . quote_plus ( url ) + "&mode=" + str ( mode ) + "&name=" + urllib . quote_plus ( name ) + "&iconimage=" + urllib . quote_plus ( iconimage ) + "&fanart=" + urllib . quote_plus ( fanart ) + "&description=" + urllib . quote_plus ( description )
- iI1I = True
- OooOoOo = xbmcgui . ListItem ( name , iconImage = "DefaultFolder.png" , thumbnailImage = iconimage )
- OooOoOo . setInfo ( type = "Video" , infoLabels = { "Title" : name , "Plot" : description } )
- OooOoOo . setProperty ( "Fanart_Image" , fanart )
- iI1I = xbmcplugin . addDirectoryItem ( handle = int ( sys . argv [ 1 ] ) , url = oooooo0OO , listitem = OooOoOo , isFolder = False )
- return iI1I
- if 46 - 46: ooO0o0Oo % iIii1I11I1II1 . I11II1i % I11II1i + i11iIiiIii
-def Oo00o0OO0O00o ( ) :
- O0Oooo = [ ]
- iiIi1i = sys . argv [ 2 ]
- if len ( iiIi1i ) >= 2 :
-  I1i11111i1i11 = sys . argv [ 2 ]
-  OOoOOO0 = I1i11111i1i11 . replace ( '?' , '' )
-  if ( I1i11111i1i11 [ len ( I1i11111i1i11 ) - 1 ] == '/' ) :
-   I1i11111i1i11 = I1i11111i1i11 [ 0 : len ( I1i11111i1i11 ) - 2 ]
-  I1I1i = OOoOOO0 . split ( '&' )
-  O0Oooo = { }
-  for I1IIIiIiIi in range ( len ( I1I1i ) ) :
-   IIIII1 = { }
-   IIIII1 = I1I1i [ I1IIIiIiIi ] . split ( '=' )
-   if ( len ( IIIII1 ) ) == 2 :
-    O0Oooo [ IIIII1 [ 0 ] ] = IIIII1 [ 1 ]
-    if 5 - 5: I11ii1
- return O0Oooo
+def IIii11I1i1I ( ) :
+ o0o0OO0O00o = [ ]
+ O0Oooo = sys . argv [ 2 ]
+ if len ( O0Oooo ) >= 2 :
+  iiIi1i = sys . argv [ 2 ]
+  I1i11111i1i11 = iiIi1i . replace ( '?' , '' )
+  if ( iiIi1i [ len ( iiIi1i ) - 1 ] == '/' ) :
+   iiIi1i = iiIi1i [ 0 : len ( iiIi1i ) - 2 ]
+  OOoOOO0 = I1i11111i1i11 . split ( '&' )
+  o0o0OO0O00o = { }
+  for I1I1i in range ( len ( OOoOOO0 ) ) :
+   I1IIIiIiIi = { }
+   I1IIIiIiIi = OOoOOO0 [ I1I1i ] . split ( '=' )
+   if ( len ( I1IIIiIiIi ) ) == 2 :
+    o0o0OO0O00o [ I1IIIiIiIi [ 0 ] ] = I1IIIiIiIi [ 1 ]
+    if 27 - 27: Oo00OOOOO + OO0o - O0o + O0 . I11ii1
+ return o0o0OO0O00o
  if 46 - 46: OOoo0O0
  if 45 - 45: I1I
-I1i11111i1i11 = Oo00o0OO0O00o ( )
+iiIi1i = IIii11I1i1I ( )
 Ooo0OO0oOO = None
 ii11i1 = None
 IIi = None
@@ -746,32 +752,32 @@ ooO0oOo0o = None
 if 66 - 66: OO0o . i1IIi . i11iIiiIii % I11II1i % I1I
 if 43 - 43: O0
 try :
- ooO0oOo0o = int ( I1i11111i1i11 [ "fav_mode" ] )
+ ooO0oOo0o = int ( iiIi1i [ "fav_mode" ] )
 except :
  pass
  if 39 - 39: ooOoo0O . iIii1I11I1II1 * I11ii1 % I1I . iIii1I11I1II1
 try :
- Ooo0OO0oOO = urllib . unquote_plus ( I1i11111i1i11 [ "url" ] )
+ Ooo0OO0oOO = urllib . unquote_plus ( iiIi1i [ "url" ] )
 except :
  pass
 try :
- ii11i1 = urllib . unquote_plus ( I1i11111i1i11 [ "name" ] )
+ ii11i1 = urllib . unquote_plus ( iiIi1i [ "name" ] )
 except :
  pass
 try :
- iiI = urllib . unquote_plus ( I1i11111i1i11 [ "iconimage" ] )
+ iiI = urllib . unquote_plus ( iiIi1i [ "iconimage" ] )
 except :
  pass
 try :
- IIi = int ( I1i11111i1i11 [ "mode" ] )
+ IIi = int ( iiIi1i [ "mode" ] )
 except :
  pass
 try :
- I1iIIiiIIi1i = urllib . unquote_plus ( I1i11111i1i11 [ "fanart" ] )
+ I1iIIiiIIi1i = urllib . unquote_plus ( iiIi1i [ "fanart" ] )
 except :
  pass
 try :
- iiIiI = urllib . unquote_plus ( I1i11111i1i11 [ "description" ] )
+ iiIiI = urllib . unquote_plus ( iiIi1i [ "description" ] )
 except :
  pass
  if 54 - 54: O0o
